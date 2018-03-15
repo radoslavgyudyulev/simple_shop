@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="/css/site.css" type="text/css" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-GxhP7S92hzaDyDJqbdpcHqV5cFflxAx0Yze/X7vUONp43KK1E8eUWaJIMkit3D0R" crossorigin="anonymous">
+   
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Shop</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/phone/all">Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About</a>
+      </li>
+     {{#if isAdmin}}
+      <li class="nav-item">
+        <a class="nav-link" href="/phone/add">Add phone</a>
+      </li>
+       {{/if}} 
+    </ul>
+     {{#if currentUser}}
+     <ul class="navbar-nav ml-auto">
+      
+    <form class="form-inline my-2 my-lg-0" id="logout-form" action="/users/logout" method="POST">
+      <a class="nav-link" href="javascript:document.getElementById('logout-form').submit()">Logout</a>
+    <li class="nav-item"><a class="nav-link" href="/users/me">{{currentUser.username}}</a></li>
+    </form>
+     
+    </ul>
+    {{else}}
+    <ul class="navbar-nav ml-auto">
+     <li class="nav-item">
+        <a class="nav-link" href="/users/register">Sign up</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="/users/login">Login</a>
+      </li>
+      </ul>
+     {{/if}}
+  </div>
+</nav>
+ {{{body}}}
+
+  <hr class="featurette-divider">
+
+<!-- FOOTER -->
+      <footer>
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2018 Radoslav Gyudyulev &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+    </div>
+</body>
+
+</html>

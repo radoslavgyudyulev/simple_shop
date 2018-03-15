@@ -1,0 +1,22 @@
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+     
+     
+        <div class="carousel-item active">
+          <img class="first-slide" src="https://static.pexels.com/photos/404280/pexels-photo-404280.jpeg" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption d-none d-md-block text-left">
+              <h1>Find the perfect phone for you</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              
+              {{#if currentUser}}
+              <p><a class="btn btn-lg btn-primary" href="/phone/all" role="button">Products</a></p>
+              {{else}}
+              <p><a class="btn btn-lg btn-primary" href="/users/register" role="button">Sign up today</a></p>
+            {{/if}}
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+      

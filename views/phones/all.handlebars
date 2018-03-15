@@ -1,0 +1,65 @@
+{{!-- <form action="/phone/all" method="GET">
+  <input type="text" name="search">
+  <input type="submit" value="Search">
+</form> --}}
+
+
+<form class="form-wrapper" action="/phone/all" method="GET">
+    <input type="text" name="search" id="search" placeholder="Search for..." required>
+    <input type="submit" value="Search" id="submit">
+</form>
+                            
+
+
+{{#each phone}}
+<hr class="featurette-divider">
+<div class="container">
+  <div class="row featurette">
+    <div class="col-md-6">
+      <h2 class="featurette-heading">{{this.model}}</h2>
+      <span class="featurette-heading text-muted">Year {{this.year}}</span>
+      <h4>Description</h4>
+      <p class="lead">{{this.description}}</p>
+      <h4>Performance</h4>
+      <p class="lead">{{this.performance}}</p>
+      <h4>Display</h4>
+      <p class="lead">{{this.display}}</p>
+      <h4>Battery</h4>
+      <p class="lead">{{this.battery}}</p>
+      <h4>Camera</h4>
+      <p class="lead">{{this.camera}}</p>
+      <h2 class="card-text">Price: {{this.price}}/ BGN</h2>
+      <h2>{{phone.phoneId}}</h2>
+       {{#if ../currentUser}}
+     <form action="/phone/buy/{{this._id}}" method="POST">
+       <input class="btn btn-primary" type="submit" value="Buy">
+     </form>
+    {{/if}}
+    </div>
+   
+    <div class="col-md-4">
+       <br>
+      <br>
+      <br>
+      <br>
+       <br>
+      <br>
+      <br>
+      <br>
+      <img id="phoneimg" class="featurette-image img-fluid mx-auto" src="{{this.image}}" alt="{{this.image}}">
+    </div>
+    
+  </div>
+
+  {{else}}
+  <h2>No phones available </h2>
+  {{/each}}
+
+  <div class="font-3x">
+    {{#if hasPrevPage}}
+    <a href="/phone/all?page={{prevPage}}&search={{search}}">&lt; &lt; </a>
+    &nbsp {{/if}} {{#if hasNextPage}}
+    <a href="/phone/all?page={{nextPage}}&search={{search}}">&gt; &gt; </a>
+    {{/if}}
+
+  </div>

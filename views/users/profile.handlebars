@@ -1,0 +1,29 @@
+<table>
+  <tr>
+    <th>
+      Model
+    </th>
+    <th>
+      Date
+    </th>
+    <th>
+      Total Price
+    </th>
+  </tr>
+  {{#each buyings}}
+    <tr>
+      <td>
+        {{this.phone.model}}  ({{this.phone.year}})
+      </td>
+      <td>
+        {{this.boughtOn}}
+      </td>
+      <td>
+        {{this.totalPrice}}
+      </td>
+    </tr>
+    
+  {{/each}}
+<table>
+
+    
